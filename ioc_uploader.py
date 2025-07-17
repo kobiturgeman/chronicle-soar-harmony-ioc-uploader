@@ -53,7 +53,7 @@ def is_valid_url_ioc(url):
 @output_handler
 def main():
     siemplify = SiemplifyAction()
-    siemplify.LOGGER.info("------ Harmony Add IOC Script Started ------")
+    siemplify.LOGGER.info("Starting Harmony IOC upload script.")
 
     vault_url = f"https://{KEY_VAULT_NAME}.vault.azure.net"
     credential = ClientSecretCredential(AZ_TENANT_ID, AZ_CLIENT_ID, AZ_CLIENT_SECRET)
@@ -65,7 +65,6 @@ def main():
 
     for entity_type, values in parsed_entities.items():
         for value in values:
-            original_value = value
             if entity_type == "URL":
                 if value.startswith("https://"):
                     value = value.replace("https://", "http://", 1)
@@ -132,14 +131,14 @@ def main():
             )
 
             if ioc_response.status_code == 200:
-                results[secret_name] = "✅ IOCs added successfully"
+                results[secret_name] = "IOCs added successfully"
             else:
-                results[secret_name] = f"❌ IOC creation failed: {ioc_response.status_code} - {ioc_response.text}"
+                results[secret_name] = f"IOC creation failed: {ioc_response.status_code} - {ioc_response.text}"
 
         except ResourceNotFoundError:
-            results[secret_name] = "❌ Secret not found in Azure Key Vault"
+            results[secret_name] = "Secret not found in Azure Key Vault"
         except Exception as e:
-            results[secret_name] = f"❌ Exception: {str(e)}"
+            results[secret_name] = f"Exception occurred: {str(e)}"
 
         time.sleep(3)
 
