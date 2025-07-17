@@ -27,7 +27,3 @@ This script integrates with Check Point Harmony Endpoint API to upload IOCs from
 
 - Make sure not to upload `config.py` to version control.
 - Do not include actual secrets in the repo.
-
-## License
-
-MIT
