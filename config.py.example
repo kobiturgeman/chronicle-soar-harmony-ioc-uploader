@@ -1,0 +1,16 @@
+# Configuration example for Harmony IOC Uploader
+
+AZ_TENANT_ID = "your-tenant-id"
+AZ_CLIENT_ID = "your-client-id"
+AZ_CLIENT_SECRET = "your-client-secret"
+KEY_VAULT_NAME = "your-keyvault-name"
+
+SECRET_NAMES = [
+    "AlfeMenashe", "Beer-Yaakov", "Beit-Shean", "Binyamin",
+    "Emek-HaYarden", "Emek-Hefer", "Hevel-Modiin",
+    "Kiryat-Arba", "Kiryat-Bialik", "Kiryat-Gat", "Lod",
+    "Modiin", "Modiin-Ilit", "Ofakim", "Omer", "Pardesiya",
+    "Ramat-Hasharon", "Ramat-Yishay", "Rehovot", "Rekhasim",
+    "Sderot", "Yokneam", "Emek-HaMaayanot", "Dimona",
+    "Kfar-Kama", "Shean-Group"
+]
